@@ -72,5 +72,20 @@
 
             <a-entity camera></a-entity>
         </a-scene>
+        <script>
+    const marker = document.querySelector('#markerA');
+    const video = document.querySelector('#vid');
+
+    marker.addEventListener('markerFound', () => {
+        video.play().catch(error => {
+            console.log("Video could not autoplay:", error);
+        });
+    });
+
+    marker.addEventListener('markerLost', () => {
+        video.pause();
+    });
+</script>
+        
     </body>
 </html>
